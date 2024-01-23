@@ -19,17 +19,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static saucedemo.pages.CatalogPage.*;
 
-public class SaucedemoTests {
+public class SaucedemoTests extends TestBase {
     private static final Logger logger = LogManager.getLogger(SaucedemoTests.class);
 
-    @BeforeEach
-    void beforeEach() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 15000;
-    }
     @Test
-    void SaucedemoTestsCell() {
+    void saucedemoTestsRight() {
         final String[] productName = new String[1];
         final String[] productPrice = new String[1];
 
@@ -87,7 +81,6 @@ public class SaucedemoTests {
         step("Checking that the order has been successfully completed", () -> {
         FinishPage finishPage = new FinishPage();
         finishPage.titleComplete.shouldHave(Condition.text("Checkout: Complete!"));
-        sleep(5000);
         });
 
 

@@ -15,18 +15,11 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class SaucedemoTestsSecond {
+public class SaucedemoTestsSecond extends TestBase {
     private static final Logger logger = LogManager.getLogger(SaucedemoTests.class);
 
-    @BeforeEach
-    void beforeEach() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 15000;
-    }
-
     @Test
-    void SaucedemoTestsCell() {
+    void saucedemoTestsError() {
 
         logger.info("Product search on the website");
         open("https://www.saucedemo.com/");

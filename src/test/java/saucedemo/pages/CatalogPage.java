@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class CatalogPage {
     public SelenideElement titleCatalogPage = $("[class='header_secondary_container']");
     public static SelenideElement selectRandomProduct() {
-        List<SelenideElement> products = Selenide.$$("[class='inventory_list']");
+        List<SelenideElement> products = Selenide.$$("[class='inventory_item']");
         if (!products.isEmpty()) {
             int randomIndex = new Random().nextInt(products.size());
             return products.get(randomIndex);
